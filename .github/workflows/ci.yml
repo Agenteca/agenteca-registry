@@ -7,25 +7,52 @@ permissions:
   contents: read
   security-events: write
 jobs:
-  check:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/agenteca-core
+          path: agenteca-core
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/agenteca-cli
+          path: agenteca-cli
+      - uses: actions/checkout@v4
+        with:
+          path: agenteca-registry
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      # Ne fonctionnera qu'une fois @agenteca/cli publié sur npm.
-      - run: npm install -g @agenteca/cli@0.1
-      - name: Scan de sécurité des paquets du dépôt
-        run: ahub scan . --format sarif --output ahub.sarif
+      # Les dépôts Agenteca sont reliés par un espace de travail npm, comme en développement.
+      - name: Espace de travail
+        run: |
+          echo '{"private": true, "workspaces": ["agenteca-core", "agenteca-cli", "agenteca-registry"]}' > package.json
+          npm install --no-audit --no-fund
+      - name: Construit agenteca-core
+        run: npm run build -w agenteca-core
+      - name: Construit agenteca-cli
+        run: npm run build -w agenteca-cli
+      - name: Lanceur ahub
+        run: |
+          printf '#!/bin/sh\nexec node %s/agenteca-cli/dist/bin.js "$@"\n' "$GITHUB_WORKSPACE" > "$RUNNER_TEMP/ahub"
+          chmod +x "$RUNNER_TEMP/ahub"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Scan de sécurité (rapport SARIF)
+        run: ahub scan . --format sarif --output ahub.sarif || true
+        working-directory: agenteca-registry
+      - uses: github/codeql-action/upload-sarif@v3
         continue-on-error: true
-      - uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: ahub.sarif
+          sarif_file: agenteca-registry/ahub.sarif
           category: ahub
+          checkout_path: agenteca-registry
       - name: Refuse tout constat critique
         run: ahub scan .
+        working-directory: agenteca-registry
       - name: Le paquet d'exemple s'installe et se retire sur les quatre outils
         run: scripts/check-example.sh
+        working-directory: agenteca-registry
       - name: Les marketplaces natifs sont à jour
         run: scripts/export.sh && git diff --exit-code
+        working-directory: agenteca-registry
