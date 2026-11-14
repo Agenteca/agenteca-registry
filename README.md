@@ -46,6 +46,8 @@ Ils ne listent que les **plugins natifs** de chaque outil. Le paquet `hello-agen
 
 Pas d'export Cursor : son format ne documente que des sources locales.
 
+`claude plugin validate` accepte le fichier Claude Code avec un avertissement : le nom `agenteca-claude-code` « ressemble à un plugin d'Anthropic ». C'est le nom du dépôt ; à trancher avant une soumission à un annuaire officiel.
+
 ## Paquet d'exemple
 
 [`examples/hello-agent`](examples/hello-agent) contient une primitive de chaque type : skill, agent, commande, instruction, hook, serveur MCP.
