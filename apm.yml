@@ -24,6 +24,15 @@ marketplace:
       tags: [exemple, démarrage]
       tools: [claude, codex, copilot, cursor]
 
+    - name: agenteca-project-kit
+      source: agenteca/agenteca-agents/plugins/agenteca-project-kit
+      description: Agents and skills for building a multi-repository open-source project - standards first, an approved plan, versioned contracts, honest verification, a guided first release.
+      license: Apache-2.0
+      category: development
+      tags: [planning, architecture, release, verification]
+      tools: [claude, codex, copilot, cursor]
+      nativePlugin: true
+
     # Les plugins Agenteca eux-mêmes : chacun n'existe que pour son outil.
     - name: agenteca-claude-code
       source: agenteca/agenteca-claude-code

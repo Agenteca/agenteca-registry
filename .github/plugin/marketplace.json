@@ -9,6 +9,23 @@
   },
   "plugins": [
     {
+      "name": "agenteca-project-kit",
+      "description": "Agents and skills for building a multi-repository open-source project - standards first, an approved plan, versioned contracts, honest verification, a guided first release.",
+      "source": {
+        "source": "github",
+        "repo": "agenteca/agenteca-agents",
+        "path": "plugins/agenteca-project-kit"
+      },
+      "license": "Apache-2.0",
+      "category": "development",
+      "keywords": [
+        "planning",
+        "architecture",
+        "release",
+        "verification"
+      ]
+    },
+    {
       "name": "agenteca-copilot",
       "description": "Plugin Agenteca pour GitHub Copilot CLI (skill hub et serveur MCP).",
       "source": {
