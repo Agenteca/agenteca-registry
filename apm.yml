@@ -1,0 +1,51 @@
+# Catalogue officiel de départ d'Agenteca.
+# Le bloc `marketplace:` est le format standard OpenAPM (spec §4.7) : ce dépôt
+# sert de registre à `ahub` et à `apm`, sans format maison.
+#
+#   ahub registry add agenteca/agenteca-registry
+#   ahub search
+name: agenteca-registry
+version: 0.1.0
+description: Catalogue officiel de départ d'Agenteca.
+license: Apache-2.0
+
+marketplace:
+  name: agenteca
+  description: Catalogue officiel de départ d'Agenteca.
+  owner:
+    name: Agenteca
+    url: https://github.com/agenteca
+  packages:
+    - name: hello-agent
+      source: ./examples/hello-agent
+      description: Paquet d'exemple — un skill, un agent, une commande, une instruction, un hook et un serveur MCP, installables dans les quatre outils.
+      license: Apache-2.0
+      category: exemples
+      tags: [exemple, démarrage]
+      tools: [claude, codex, copilot, cursor]
+
+    # Les plugins Agenteca eux-mêmes : chacun n'existe que pour son outil.
+    - name: agenteca-claude-code
+      source: agenteca/agenteca-claude-code
+      description: Plugin Agenteca pour Claude Code (commande /hub et serveur MCP).
+      license: Apache-2.0
+      category: outils
+      tags: [agenteca, plugin]
+      tools: [claude]
+      nativePlugin: true
+    - name: agenteca-codex
+      source: agenteca/agenteca-codex
+      description: Plugin Agenteca pour Codex (skill hub et serveur MCP).
+      license: Apache-2.0
+      category: outils
+      tags: [agenteca, plugin]
+      tools: [codex]
+      nativePlugin: true
+    - name: agenteca-copilot
+      source: agenteca/agenteca-copilot
+      description: Plugin Agenteca pour GitHub Copilot CLI (skill hub et serveur MCP).
+      license: Apache-2.0
+      category: outils
+      tags: [agenteca, plugin]
+      tools: [copilot]
+      nativePlugin: true
