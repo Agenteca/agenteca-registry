@@ -2,7 +2,7 @@
 
 Catalogue officiel de départ d'Agenteca, et son paquet d'exemple.
 
-> État : 0.1.0, non publié. Les commandes qui citent `agenteca/agenteca-registry` ne fonctionneront qu'une fois ce dépôt en ligne ; d'ici là, utilisez un chemin local.
+> État : 0.1.0. Ce dépôt est en ligne et utilisable comme registre. La commande `ahub` n'est pas encore sur npm : construisez-la depuis [agenteca-cli](https://github.com/agenteca/agenteca-cli).
 
 ## S'en servir comme registre
 
