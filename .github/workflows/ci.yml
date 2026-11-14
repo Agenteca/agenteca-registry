@@ -39,12 +39,13 @@ jobs:
           chmod +x "$RUNNER_TEMP/ahub"
           echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
       - name: Scan de sécurité (rapport SARIF)
-        run: ahub scan . --format sarif --output ahub.sarif || true
+        # Le rapport est écrit hors du dépôt : il cite les motifs dangereux et serait lui-même signalé par le scan.
+        run: ahub scan . --format sarif --output "$RUNNER_TEMP/ahub.sarif" || true
         working-directory: agenteca-registry
       - uses: github/codeql-action/upload-sarif@v3
         continue-on-error: true
         with:
-          sarif_file: agenteca-registry/ahub.sarif
+          sarif_file: ${{ runner.temp }}/ahub.sarif
           category: ahub
           checkout_path: agenteca-registry
       - name: Refuse tout constat critique
