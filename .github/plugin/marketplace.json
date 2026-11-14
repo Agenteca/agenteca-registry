@@ -1,0 +1,26 @@
+{
+  "name": "agenteca",
+  "owner": {
+    "name": "Agenteca",
+    "url": "https://github.com/agenteca"
+  },
+  "metadata": {
+    "description": "Catalogue officiel de départ d'Agenteca."
+  },
+  "plugins": [
+    {
+      "name": "agenteca-copilot",
+      "description": "Plugin Agenteca pour GitHub Copilot CLI (skill hub et serveur MCP).",
+      "source": {
+        "source": "github",
+        "repo": "agenteca/agenteca-copilot"
+      },
+      "license": "Apache-2.0",
+      "category": "outils",
+      "keywords": [
+        "agenteca",
+        "plugin"
+      ]
+    }
+  ]
+}
