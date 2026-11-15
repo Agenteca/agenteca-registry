@@ -1,7 +1,7 @@
 #!/bin/sh
-# Installe le paquet d'exemple sur les quatre outils dans un projet jetable, vérifie
-# les fichiers attendus, puis le retire et vérifie que rien ne reste.
-# Usage : scripts/check-example.sh [commande ahub]   (défaut : ahub)
+# Installs the example package for the four tools in a throwaway project, checks
+# the expected files, then removes it and checks that nothing is left.
+# Usage: scripts/check-example.sh [ahub command]   (default: ahub)
 set -eu
 AHUB="${1:-ahub}"
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
@@ -20,13 +20,13 @@ for f in \
   .cursor/agents/greeter.md .cursor/commands/hello.md .cursor/rules/tone.mdc .cursor/hooks.json .cursor/mcp.json \
   apm.yml apm.lock.yaml
 do
-  if [ ! -f "$f" ]; then echo "MANQUANT : $f"; fail=1; fi
+  if [ ! -f "$f" ]; then echo "MISSING: $f"; fail=1; fi
 done
 count=$(find . -type f | wc -l)
-echo "Installé : $count fichiers pour Claude Code, Codex, Copilot et Cursor."
+echo "Installed: $count files for Claude Code, Codex, Copilot and Cursor."
 
 $AHUB remove hello-agent --yes >/dev/null
 left=$(find . -type f ! -name apm.yml ! -name apm.lock.yaml | wc -l)
-if [ "$left" -ne 0 ]; then echo "RESTE après retrait :"; find . -type f ! -name apm.yml ! -name apm.lock.yaml; fail=1; fi
-echo "Retiré : il reste $left fichier hors manifeste et lockfile."
+if [ "$left" -ne 0 ]; then echo "LEFT after removal:"; find . -type f ! -name apm.yml ! -name apm.lock.yaml; fail=1; fi
+echo "Removed: $left file(s) left besides the manifest and the lockfile."
 exit $fail

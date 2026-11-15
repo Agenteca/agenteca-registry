@@ -1,27 +1,27 @@
-# Catalogue officiel de départ d'Agenteca.
-# Le bloc `marketplace:` est le format standard OpenAPM (spec §4.7) : ce dépôt
-# sert de registre à `ahub` et à `apm`, sans format maison.
+# Official starter catalog of Agenteca.
+# The `marketplace:` block is the standard OpenAPM format (spec §4.7): this repository
+# serves as a registry for `ahub` and `apm`, with no format of its own.
 #
 #   ahub registry add agenteca/agenteca-registry
 #   ahub search
 name: agenteca-registry
 version: 0.1.0
-description: Catalogue officiel de départ d'Agenteca.
+description: Official starter catalog of Agenteca.
 license: Apache-2.0
 
 marketplace:
   name: agenteca
-  description: Catalogue officiel de départ d'Agenteca.
+  description: Official starter catalog of Agenteca.
   owner:
     name: Agenteca
     url: https://github.com/agenteca
   packages:
     - name: hello-agent
       source: ./examples/hello-agent
-      description: Paquet d'exemple — un skill, un agent, une commande, une instruction, un hook et un serveur MCP, installables dans les quatre outils.
+      description: Example package — a skill, an agent, a command, an instruction, a hook and an MCP server, installable in all four tools.
       license: Apache-2.0
-      category: exemples
-      tags: [exemple, démarrage]
+      category: examples
+      tags: [example, getting-started]
       tools: [claude, codex, copilot, cursor]
 
     - name: agenteca-project-kit
@@ -33,28 +33,28 @@ marketplace:
       tools: [claude, codex, copilot, cursor]
       nativePlugin: true
 
-    # Les plugins Agenteca eux-mêmes : chacun n'existe que pour son outil.
+    # The Agenteca plugins themselves: each one only exists for its own tool.
     - name: agenteca-claude-code
       source: agenteca/agenteca-claude-code
-      description: Plugin Agenteca pour Claude Code (commande /hub et serveur MCP).
+      description: Agenteca plugin for Claude Code (/hub command and MCP server).
       license: Apache-2.0
-      category: outils
+      category: tools
       tags: [agenteca, plugin]
       tools: [claude]
       nativePlugin: true
     - name: agenteca-codex
       source: agenteca/agenteca-codex
-      description: Plugin Agenteca pour Codex (skill hub et serveur MCP).
+      description: Agenteca plugin for Codex (hub skill and MCP server).
       license: Apache-2.0
-      category: outils
+      category: tools
       tags: [agenteca, plugin]
       tools: [codex]
       nativePlugin: true
     - name: agenteca-copilot
       source: agenteca/agenteca-copilot
-      description: Plugin Agenteca pour GitHub Copilot CLI (skill hub et serveur MCP).
+      description: Agenteca plugin for GitHub Copilot CLI (hub skill and MCP server).
       license: Apache-2.0
-      category: outils
+      category: tools
       tags: [agenteca, plugin]
       tools: [copilot]
       nativePlugin: true

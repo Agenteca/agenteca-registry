@@ -1,7 +1,7 @@
 {
   "name": "agenteca",
   "interface": {
-    "displayName": "Catalogue officiel de départ d'Agenteca."
+    "displayName": "Official starter catalog of Agenteca."
   },
   "plugins": [
     {
@@ -19,7 +19,7 @@
     },
     {
       "name": "agenteca-codex",
-      "description": "Plugin Agenteca pour Codex (skill hub et serveur MCP).",
+      "description": "Agenteca plugin for Codex (hub skill and MCP server).",
       "source": {
         "source": "url",
         "url": "https://github.com/agenteca/agenteca-codex.git"
@@ -27,7 +27,7 @@
       "policy": {
         "installation": "AVAILABLE"
       },
-      "category": "outils"
+      "category": "tools"
     }
   ]
 }

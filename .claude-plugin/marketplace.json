@@ -5,7 +5,7 @@
     "url": "https://github.com/agenteca"
   },
   "metadata": {
-    "description": "Catalogue officiel de départ d'Agenteca."
+    "description": "Official starter catalog of Agenteca."
   },
   "plugins": [
     {
@@ -27,13 +27,13 @@
     },
     {
       "name": "agenteca-claude-code",
-      "description": "Plugin Agenteca pour Claude Code (commande /hub et serveur MCP).",
+      "description": "Agenteca plugin for Claude Code (/hub command and MCP server).",
       "source": {
         "source": "github",
         "repo": "agenteca/agenteca-claude-code"
       },
       "license": "Apache-2.0",
-      "category": "outils",
+      "category": "tools",
       "keywords": [
         "agenteca",
         "plugin"

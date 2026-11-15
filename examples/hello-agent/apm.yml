@@ -1,13 +1,13 @@
 name: hello-agent
-version: 0.1.0
-description: Paquet d'exemple Agenteca — une primitive de chaque type, pour vérifier une installation.
+version: 0.1.1
+description: Agenteca example package — one primitive of each type, to check an installation.
 author: Agenteca
 license: Apache-2.0
 
 dependencies:
   mcp:
-    # Serveur de référence du projet MCP (mémoire locale). Il est lancé par l'outil,
-    # pas à l'installation ; ahub montre cette commande avant de l'écrire.
+    # Reference server of the MCP project (local memory). It is started by the tool,
+    # not at installation; ahub shows this command before writing it.
     - name: hello-memory
       registry: false
       transport: stdio

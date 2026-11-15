@@ -1,5 +1,5 @@
 ---
-description: Vérifie que le paquet d'exemple Agenteca est installé.
+description: Checks that the Agenteca example package is installed.
 ---
 
-Vérifie que le paquet d'exemple `hello-agent` est installé : dis si le skill `hello-agenteca` est disponible, puis liste en une ligne chacune les primitives du paquet.
+Check that the `hello-agent` example package is installed: say whether the `hello-agenteca` skill is available, then list the primitives of the package, one line each.

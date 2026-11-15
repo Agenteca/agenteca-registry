@@ -1,13 +1,13 @@
-# Ce que le paquet hello-agent installe
+# What the hello-agent package installs
 
-| Primitive | Nom | Rôle |
+| Primitive | Name | Purpose |
 |---|---|---|
-| Skill | `hello-agenteca` | Confirme que le paquet est installé |
-| Agent | `greeter` | Un agent qui accueille et explique Agenteca |
-| Commande | `hello` | Raccourci qui lance la vérification |
-| Instruction | `tone` | Demande un ton sobre dans les fichiers Markdown |
-| Hook | `session` | Affiche une ligne à la fin d'une réponse |
-| Serveur MCP | `hello-memory` | Serveur de référence « memory » du projet MCP |
+| Skill | `hello-agenteca` | Confirms that the package is installed |
+| Agent | `greeter` | An agent that welcomes the user and explains Agenteca |
+| Command | `hello` | Shortcut that runs the check |
+| Instruction | `tone` | Asks for a plain tone in Markdown files |
+| Hook | `session` | Prints one line at the end of an answer |
+| MCP server | `hello-memory` | The MCP project's reference "memory" server |
 
-Selon l'outil, certaines primitives n'existent pas (par exemple les instructions par fichier dans Codex) :
-`ahub` le signale par un avertissement à l'installation.
+Depending on the tool, some primitives do not exist (for example per-file instructions in Codex):
+`ahub` reports it with a warning at installation.

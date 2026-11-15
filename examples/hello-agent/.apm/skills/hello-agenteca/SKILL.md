@@ -1,15 +1,15 @@
 ---
 name: hello-agenteca
-description: Vérifie qu'un paquet Agenteca est bien installé. À utiliser quand l'utilisateur demande si Agenteca fonctionne, ou tape « hello agenteca ».
+description: Checks that an Agenteca package is installed. Use it when the user asks whether Agenteca works, or types "hello agenteca".
 license: Apache-2.0
 ---
 
 # Hello Agenteca
 
-Ce skill vient du paquet d'exemple `hello-agent`. S'il est chargé, l'installation a fonctionné.
+This skill comes from the `hello-agent` example package. If it is loaded, the installation worked.
 
-Quand on te le demande :
+When asked:
 
-1. Confirme en une phrase que le skill `hello-agenteca` est chargé.
-2. Lis `references/primitives.md` et résume en trois lignes ce que le paquet a installé.
-3. N'exécute aucune commande : ce skill ne fait que répondre.
+1. Confirm in one sentence, in the user's language, that the `hello-agenteca` skill is loaded.
+2. Read `references/primitives.md` and sum up in three lines what the package installed.
+3. Do not run any command: this skill only answers.

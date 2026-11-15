@@ -1,23 +1,25 @@
 # hello-agent
 
-Paquet d'exemple d'Agenteca : une primitive de chaque type, pour vérifier qu'une installation fonctionne dans Claude Code, Codex, GitHub Copilot et Cursor.
+Example package of Agenteca: one primitive of each type, to check that an installation works in Claude Code, Codex, GitHub Copilot and Cursor.
 
 ```bash
 ahub add agenteca/agenteca-registry/examples/hello-agent --tool claude,codex,copilot,cursor
 ```
 
-Depuis une copie locale de ce dépôt :
+From a local copy of this repository:
 
 ```bash
 ahub add ./examples/hello-agent --tool claude
 ```
 
-`ahub` affiche d'abord tout ce qui sera écrit, dont deux éléments exécutables : un hook qui affiche une ligne (`echo`), et un serveur MCP lancé par `npx -y @modelcontextprotocol/server-memory`. Ce serveur est téléchargé par `npx` au moment où votre outil le démarre, pas à l'installation.
+`ahub` first shows everything that will be written, including two executable items: a hook that prints one line (`echo`), and an MCP server started with `npx -y @modelcontextprotocol/server-memory`. That server is downloaded by `npx` when your tool starts it, not at installation.
 
-Pour tout retirer :
+To remove everything:
 
 ```bash
 ahub remove hello-agent
 ```
 
-Le contenu est décrit dans [`references/primitives.md`](.apm/skills/hello-agenteca/references/primitives.md).
+The content is described in [`references/primitives.md`](.apm/skills/hello-agenteca/references/primitives.md).
+
+The agent, the skill and the command are written in English and ask the model to answer in the user's language.

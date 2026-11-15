@@ -24,22 +24,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      # Les dépôts Agenteca sont reliés par un espace de travail npm, comme en développement.
-      - name: Espace de travail
+      # The Agenteca repositories are linked through an npm workspace, as in development.
+      - name: Workspace
         run: |
           echo '{"private": true, "workspaces": ["agenteca-core", "agenteca-cli", "agenteca-registry"]}' > package.json
           npm install --no-audit --no-fund
-      - name: Construit agenteca-core
+      - name: Build agenteca-core
         run: npm run build -w agenteca-core
-      - name: Construit agenteca-cli
+      - name: Build agenteca-cli
         run: npm run build -w agenteca-cli
-      - name: Lanceur ahub
+      - name: ahub launcher
         run: |
           printf '#!/bin/sh\nexec node %s/agenteca-cli/dist/bin.js "$@"\n' "$GITHUB_WORKSPACE" > "$RUNNER_TEMP/ahub"
           chmod +x "$RUNNER_TEMP/ahub"
           echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
-      - name: Scan de sécurité (rapport SARIF)
-        # Le rapport est écrit hors du dépôt : il cite les motifs dangereux et serait lui-même signalé par le scan.
+      - name: Security scan (SARIF report)
+        # The report is written outside the repository: it quotes the dangerous patterns and would itself be flagged by the scan.
         run: ahub scan . --format sarif --output "$RUNNER_TEMP/ahub.sarif" || true
         working-directory: agenteca-registry
       - uses: github/codeql-action/upload-sarif@v3
@@ -48,12 +48,12 @@ jobs:
           sarif_file: ${{ runner.temp }}/ahub.sarif
           category: ahub
           checkout_path: agenteca-registry
-      - name: Refuse tout constat critique
+      - name: Refuse any critical finding
         run: ahub scan .
         working-directory: agenteca-registry
-      - name: Le paquet d'exemple s'installe et se retire sur les quatre outils
+      - name: The example package installs and uninstalls on the four tools
         run: scripts/check-example.sh
         working-directory: agenteca-registry
-      - name: Les marketplaces natifs sont à jour
+      - name: The native marketplaces are up to date
         run: scripts/export.sh && git diff --exit-code
         working-directory: agenteca-registry

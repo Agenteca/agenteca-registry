@@ -2,7 +2,7 @@
   "hooks": {
     "Stop": [
       {
-        "hooks": [{ "type": "command", "command": "echo 'hello-agent : paquet Agenteca installé'" }]
+        "hooks": [{ "type": "command", "command": "echo 'hello-agent: Agenteca package installed'" }]
       }
     ]
   }
